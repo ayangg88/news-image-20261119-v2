@@ -8,6 +8,8 @@ SRC = os.path.join(HERE, "entry.png")
 
 
 def main():
+    if not os.path.isfile(SRC):
+        raise SystemExit("entry.png missing next to main.py")
     out_dir = os.environ.get("MAKEFUN_OUTPUT_DIR", "/output")
     os.makedirs(out_dir, exist_ok=True)
     shutil.copyfile(SRC, os.path.join(out_dir, "entry.png"))
